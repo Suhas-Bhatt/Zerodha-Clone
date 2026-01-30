@@ -30,7 +30,7 @@ function Team() {
           <p>Playing basketball is his
           zen.</p>
           <br/>
-          <p>Connect on <a href="">Homepage</a> /<a href="">TradingQnA</a> /<a href="">Twitter</a> </p>
+          <p>Connect on <a href="#">Homepage</a> /<a href="#">TradingQnA</a> /<a href="#">Twitter</a> </p>
         </div>
       </div>
     </div>
