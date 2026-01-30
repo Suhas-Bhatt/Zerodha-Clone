@@ -14,13 +14,28 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://your-frontend.onrender.com",
+  "https://your-frontend.netlify.app",
+];
+
 app.use(
   cors({
-    origin: "*",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   }),
 );
+
 app.use(bodyParser.json());
 
 // app.get("/addHoldings", async (req, res) => {
